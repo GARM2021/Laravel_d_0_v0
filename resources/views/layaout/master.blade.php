@@ -10,9 +10,21 @@
     @if (session()->has('error'))
     <div class='alert alert-danger'>
         {{ session()->get('error')}}
+    </div>        
+    @endif
+   
+    @if (isset($errors) && $rrors->any())
+    <div class="alert aler-danger" >
+        <ul>
+            @foreach ($errors->all() as $error)
+             <li>{{ $error}}</li>
+                
+            @endforeach
+        </ul>
     </div>
         
     @endif
+
    @yield('content')
 </body>
 </html>
