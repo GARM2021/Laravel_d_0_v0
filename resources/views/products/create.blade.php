@@ -1,6 +1,6 @@
 @extends('layaout.master');
     @section('content');
-    <h1>Create a Product 20210310 1840</h1>
+    <h1>Create a Product 20210310 1853</h1>
     <form method="POST" action="{{route('products.store')}}">
         @csrf
         <div class="form-row">
