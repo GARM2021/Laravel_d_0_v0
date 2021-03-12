@@ -14,11 +14,11 @@
         </div>
         <div class="form-row">
             <label>Price</label>
-            <input class="form-control" type="number"  min="1.00" step="0.01" name="price" value="{{ $product->title}}" required>
+            <input class="form-control" type="number"  min="1.00" step="0.01" name="price" value="{{ $product->price}}" required>
         </div>
         <div class="form-row">
             <label>Stock</label>
-            <input class="form-control" type="number"  min="0"  name="stock" value="{{ $product->title}}" required>
+            <input class="form-control" type="number"  min="0"  name="stock" value="{{ $product->Stock}}" required>
         </div>
         <div class="form-row">
             <label>Status</label>
