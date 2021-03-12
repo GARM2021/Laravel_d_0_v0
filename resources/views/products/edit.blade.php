@@ -18,7 +18,7 @@
         </div>
         <div class="form-row">
             <label>Stock</label>
-            <input class="form-control" type="number"  min="0"  name="stock" value="{{ $product->Stock}}" required>
+            <input class="form-control" type="number"  min="0"  name="stock" value="{{ $product->stock}}" required>
         </div>
         <div class="form-row">
             <label>Status</label>
