@@ -7,9 +7,16 @@
     <title>Laravel Desde Cero 20210403</title>
 </head>
 <body>
+
     @if (session()->has('error'))
-    <div class='alert alert-danger'>
+    <div class='alert alert-danger'>s
         {{ session()->get('error')}}
+    </div>        
+    @endif
+
+    @if (session()->has('success'))
+    <div class='alert alert-success'>
+        {{ session()->get('success')}}
     </div>        
     @endif
    

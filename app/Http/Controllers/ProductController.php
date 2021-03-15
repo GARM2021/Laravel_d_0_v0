@@ -63,7 +63,7 @@ class ProductController extends Controller
         // return redirect()->back(); //anterior// ! Este puede servir para que siga capturando
 
         // return redirect()->action('ProductController@index'); //action //! Lista de nuevo todos los productos
-
+        session()->flash('success', "The new product with id {$product->id} was created succes"); //! C41 
         return redirect()->route('products.index'); //route//! Este es el recomendado es mas dificil que cambie el nombre de la route 
     }
     public function show($product)
