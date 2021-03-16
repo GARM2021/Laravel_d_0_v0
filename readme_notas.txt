@@ -95,6 +95,17 @@ en /config/session.php
 
   el tiempo de duración de la sesión es decir después de cuánto tiempo puede expirar o no si se va a expirar
 
+Clase 43 
+D:\xampp\htdocs\Laravel-desde-Cero>composer require laravel/ui
+
+D:\xampp\htdocs\Laravel-desde-Cero>php artisan ui --help
+
+D:\xampp\htdocs\Laravel-desde-Cero>php artisan ui bootstrap --auth
+
+
+
+
+
 
 
 
