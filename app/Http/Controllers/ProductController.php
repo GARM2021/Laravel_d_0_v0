@@ -112,9 +112,16 @@ class ProductController extends Controller
 
         $product->update(request()->all());
 
+        if (request()->status == 'available' && request()->stock == 0) { 
+            return redirect()
+                ->back()
+                ->withInput(request()->all())
+                ->withErrors('If available must have stock edit');
+        }
+
         return redirect()
             ->route('products.index')
-            ->withSucces("The new product with id {$product->id} was editada"); // ! C41
+            ->withSucces("The new product with id {$product->id} was editada"); // ! C42
     }
 
     public function destroy($product)
@@ -126,6 +133,6 @@ class ProductController extends Controller
 
         return redirect()
             ->route('products.index')
-            ->withSuccess("The product with id {$product->id} was Eliminado"); // ! C41 la tenia escrita como withSucces con una s por eso no me aparecia 
+            ->withSuccess("The product with id {$product->id} was Eliminado"); // ! C42 la tenia escrita como withSucces con una s por eso no me aparecia 
     }
 }
