@@ -102,6 +102,8 @@ D:\xampp\htdocs\Laravel-desde-Cero>php artisan ui --help
 
 D:\xampp\htdocs\Laravel-desde-Cero>php artisan ui bootstrap --auth
 
+D:\xampp\htdocs\Laravel-desde-Cero>php artisan migrate:fresh --seed  // genera los usuarios y refresca los productos 
+
 
 
 
