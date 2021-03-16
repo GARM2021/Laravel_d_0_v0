@@ -46,14 +46,17 @@ class ProductController extends Controller
             'stock' => ['required', 'min:0'],
             'status' => ['required', 'in:available, unabailable'],
         ];
-        
+
         request()->validate($rules);
 
         if (request()->status == 'available' && request()->stock == 0) {  //! Manera de atrapar un error en la captura es una opcion
             //session()->put('error', 'If available must have stock'); //! valor error permance
-            session()->flash('error', 'If available must have stock'); //! valor error NO permance si tu refrescas das un nuevo producto si vas a otra direccion flash crea y elimina 
+            //session()->flash('error', 'If available must have stock'); //! valor error NO permance si tu refrescas das un nuevo producto si vas a otra direccion flash crea y elimina  Esta deja de funcionar con withErrors 
 
-            return redirect()->back();
+            return redirect()
+                ->back()
+                ->withInput(request()->all())
+                ->withErrors('If available must have stock create');
         }
 
         session()->forget('error');
@@ -63,8 +66,10 @@ class ProductController extends Controller
         // return redirect()->back(); //anterior// ! Este puede servir para que siga capturando
 
         // return redirect()->action('ProductController@index'); //action //! Lista de nuevo todos los productos
-        session()->flash('success', "The new product with id {$product->id} was created succes"); //! C41 
-        return redirect()->route('products.index'); //route//! Este es el recomendado es mas dificil que cambie el nombre de la route 
+        // session()->flash('success', "The new product with id {$product->id} was created succes"); //! C41  se elimina porque usamos withSuccess
+        return redirect()
+        ->route('products.index') //! route Este es el recomendado es mas dificil que cambie el nombre de la route 
+        ->withSuccess("The new product with id {$product->id} was created succesx");  // ! C41 
     }
     public function show($product)
     {
@@ -100,14 +105,16 @@ class ProductController extends Controller
             'stock' => ['required', 'min:0'],
             'status' => ['required', 'in:available, unabailable'],
         ];
-        
+
         request()->validate($rules);
-        
+
         $product = Product::findOrFail($product);
 
         $product->update(request()->all());
 
-        return redirect()->route('products.index');
+        return redirect()
+            ->route('products.index')
+            ->withSucces("The new product with id {$product->id} was editada"); // ! C41
     }
 
     public function destroy($product)
@@ -115,12 +122,10 @@ class ProductController extends Controller
 
         $product = Product::findOrFail($product);
 
-
-
         $product->delete();
 
-
-
-        return redirect()->route('products.index');
+        return redirect()
+            ->route('products.index')
+            ->withSuccess("The product with id {$product->id} was Eliminado"); // ! C41 la tenia escrita como withSucces con una s por eso no me aparecia 
     }
 }

@@ -8,11 +8,11 @@
 </head>
 <body>
 
-    @if (session()->has('error'))
+    {{-- @if (session()->has('error')) se elimina porque en el controlador tenes withErrors
     <div class='alert alert-danger'>s
         {{ session()->get('error')}}
     </div>        
-    @endif
+    @endif --}}
 
     @if (session()->has('success'))
     <div class='alert alert-success'>
