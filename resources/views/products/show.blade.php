@@ -1,4 +1,4 @@
-@extends('layaout.master');
+@extends('layouts.app');
 {{-- <!DOCTYPE html>
 <html lang="en">
 

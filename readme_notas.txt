@@ -104,6 +104,12 @@ D:\xampp\htdocs\Laravel-desde-Cero>php artisan ui bootstrap --auth
 
 D:\xampp\htdocs\Laravel-desde-Cero>php artisan migrate:fresh --seed  // genera los usuarios y refresca los productos 
 
+Clase 45
+npm --version
+
+npm install 
+
+npm run dev  // me marco error y lo volvi a correr y ya termino successfully
 
 
 

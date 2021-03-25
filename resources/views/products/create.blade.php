@@ -1,4 +1,4 @@
-@extends('layaout.master');
+@extends('layouts.app');
     @section('content');
     <h1>Create a Product 20210310 1853</h1>
     <form method="POST" action="{{route('products.store')}}">
@@ -26,7 +26,7 @@
                 <option {{ old('status') == 'Unavailable' ? 'selected' : '|' }} value="unavailable" selected>Select...Unavailable</option>
             </Select>
         </div>
-        <div class="form-row">
+        <div class="form-row mt-3" >
             <button type="submit" class="btn btn-primary btn-lg">Create Product</button>
         </div>
     </form>
