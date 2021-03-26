@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\DB; //!SE INCLUYO ESTA LINEA PARA USAR QUERY BUIL
 
 class ProductController extends Controller
 { //! Se me borroeste {  y me marcaba error Controller subrayado
+
+    public function __construct()
+    {
+        $this->middleware('auth'); //! todas las rutas estan protegidas
+        //$this->middleware('auth')->only('index'); //! todas las rutas estan desprotegidas sono index esta protegida
+        //$this->middleware('auth')->except(['index', 'create']);//!todas las rutas estan protegidas expepto index y create
+    }
     public function index()
     {
         $products = Product::all(); //! Esta es usando eloquent con los modelos
