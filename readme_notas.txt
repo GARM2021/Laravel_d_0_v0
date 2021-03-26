@@ -111,7 +111,14 @@ npm install
 
 npm run dev  // me marco error y lo volvi a correr y ya termino successfully
 
+Clase 49
+D:\xampp\htdocs\Laravel-desde-Cero>php artisan make:request ProductRequest // crea en app/Request 
 
+\ProductRequest.php
+ public function authorize()
+    {
+        return true;//! c49 esta como false y deve ser true se debe cambiar porque lo genera como false
+    }
 
 
 

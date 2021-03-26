@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 //use App\Http\Controllers\Controller;
+
+use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 //use Illuminate\Http\Request;
 
@@ -36,7 +38,7 @@ class ProductController extends Controller
         //return 'This is the to create a  product from CONTROLLER';
         return  view('products.create');
     }
-    public function store()
+    public function store(ProductRequest $request)//! c49
     {
         // $product = product::create([
         // 'title' => request()->title, 
@@ -46,15 +48,15 @@ class ProductController extends Controller
         // 'status' => request()->status, 
         // ]);
 
-        $rules = [
-            'title' => ['required', 'max:255'],
-            'description' => ['required', 'max:1000'],
-            'price' => ['required', 'min:1'],
-            'stock' => ['required', 'min:0'],
-            'status' => ['required', 'in:available, unabailable'],
-        ];
+        // $rules = [
+        //     'title' => ['required', 'max:255'],
+        //     'description' => ['required', 'max:1000'],
+        //     'price' => ['required', 'min:1'],
+        //     'stock' => ['required', 'min:0'],
+        //     'status' => ['required', 'in:available, unabailable'],
+        // ]; //! c49 se centralizan en ProductRequest.php formrequest 
 
-        request()->validate($rules);
+       // request()->validate($rules);
 
         if (request()->status == 'available' && request()->stock == 0) {  //! Manera de atrapar un error en la captura es una opcion
             //session()->put('error', 'If available must have stock'); //! valor error permance
@@ -105,17 +107,17 @@ class ProductController extends Controller
         ]);
     }
 
-    public function update(Product $product)//! c47
+    public function update(ProductRequest $request,  Product $product)//! c49 c47 
     {
-        $rules = [
-            'title' => ['required', 'max:255'],
-            'description' => ['required', 'max:1000'],
-            'price' => ['required', 'min:1'],
-            'stock' => ['required', 'min:0'],
-            'status' => ['required', 'in:available, unabailable'],
-        ];
+        // $rules = [
+        //     'title' => ['required', 'max:255'],
+        //     'description' => ['required', 'max:1000'],
+        //     'price' => ['required', 'min:1'],
+        //     'stock' => ['required', 'min:0'],
+        //     'status' => ['required', 'in:available, unabailable'],
+        // ];//! c49 se centralizan en ProductRequest.php formrequest 
 
-        request()->validate($rules);
+      //  request()->validate($rules);
 
        // $product = Product::findOrFail($product); //! c47
 
