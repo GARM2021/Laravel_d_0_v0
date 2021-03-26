@@ -16,21 +16,25 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'MainController@index')->name('main');
 
-Route::get('products', 'ProductController@index')->name('products.index');
 
-Route::get('products/create', 'ProductController@create')->name('products.create');//! tenia este como ProductController@index y me mostraba la lista de productos que pen
+//Route::resource('products', 'ProductController')->only(['index', 'show', 'create']); // ->except //!c48 
+Route::resource('products', 'ProductController'); //!c48 Ruta de recursos se eliminaron todas las demas
 
-Route::post('products', 'ProductController@store')->name('products.store');
+// Route::get('products', 'ProductController@index')->name('products.index');
+
+// Route::get('products/create', 'ProductController@create')->name('products.create');//! tenia este como ProductController@index y me mostraba la lista de productos que pen
+
+// Route::post('products', 'ProductController@store')->name('products.store');
 
 
-//Route::get('products/{product:title}', 'ProductController@show')->name('products.show');//!c47 buscara el producto por el titulo 
-Route::get('products/{product}', 'ProductController@show')->name('products.show');
+// //Route::get('products/{product:title}', 'ProductController@show')->name('products.show');//!c47 buscara el producto por el titulo 
+// Route::get('products/{product}', 'ProductController@show')->name('products.show');
 
-Route::get('products/{product}/edit', 'ProductController@edit')->name('products.edit');
+// Route::get('products/{product}/edit', 'ProductController@edit')->name('products.edit');
 
-Route::match(['put', 'patch'], 'products/{product}', 'ProductController@update')->name('products.update');
+// Route::match(['put', 'patch'], 'products/{product}', 'ProductController@update')->name('products.update');
 
-Route::delete('products/{product}', 'ProductController@destroy')->name('products.destroy');
+// Route::delete('products/{product}', 'ProductController@destroy')->name('products.destroy');
 
 
 Auth::routes();
