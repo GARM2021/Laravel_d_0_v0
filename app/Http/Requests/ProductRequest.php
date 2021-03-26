@@ -13,7 +13,7 @@ class ProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;//! c49 esta como false y deve ser tru 
+        return true;//! c49 esta como false y deve ser true
     }
 
     /**
