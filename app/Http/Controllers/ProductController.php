@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB; //!SE INCLUYO ESTA LINEA PARA USAR QUERY BUIL
 class ProductController extends Controller
 { //! Se me borroeste {  y me marcaba error Controller subrayado
 
-    public function __construct()
+    public function __construct() //! c47
     {
         $this->middleware('auth'); //! todas las rutas estan protegidas
         //$this->middleware('auth')->only('index'); //! todas las rutas estan desprotegidas sono index esta protegida
@@ -78,7 +78,8 @@ class ProductController extends Controller
         ->route('products.index') //! route Este es el recomendado es mas dificil que cambie el nombre de la route 
         ->withSuccess("The new product with id {$product->id} was created succesx");  // ! C41 
     }
-    public function show($product)
+   //public function show($product)
+   public function show(Product $product) //! c47 
     {
 
         // $product = DB::table('products')->where('id', $product)->get();// ! Esta es con QueryBuilder aqui batalle conesta porque puse 'product' y get 
@@ -86,7 +87,7 @@ class ProductController extends Controller
 
         //return "Showing product with id {$product} from CONTROLLER"; //! este esta entre comillas dobles 
 
-        $product = Product::find($product); //! Se puede poner findOrFail  para atrapar un error cuando no se encuentre 
+        //$product = Product::find($product); //! Se puede poner findOrFail  para atrapar un error cuando no se encuentre C47 inyeccion de modelos se puede omitir esta linea por completo con public function show (Product $product)
         //dd($products);
         return view('products.show')->with([
             'element' => $product,
@@ -94,16 +95,17 @@ class ProductController extends Controller
 
         ]);
     }
-    public function edit($product)
+    public function edit(Product $product)//! c47
     {
 
 
         return view('products.edit')->with([
-            'product' => Product::findOrFail($product),
+            //'product' => Product::findOrFail($product),//! c47
+            'product' => $product,
         ]);
     }
 
-    public function update($product)
+    public function update(Product $product)//! c47
     {
         $rules = [
             'title' => ['required', 'max:255'],
@@ -115,7 +117,7 @@ class ProductController extends Controller
 
         request()->validate($rules);
 
-        $product = Product::findOrFail($product);
+       // $product = Product::findOrFail($product); //! c47
 
         $product->update(request()->all());
 
@@ -131,10 +133,10 @@ class ProductController extends Controller
             ->withSucces("The new product with id {$product->id} was editada"); // ! C42
     }
 
-    public function destroy($product)
+    public function destroy(Product $product)//! c47
     {
 
-        $product = Product::findOrFail($product);
+        //$product = Product::findOrFail($product); //! c47
 
         $product->delete();
 

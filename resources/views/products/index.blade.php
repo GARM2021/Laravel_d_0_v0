@@ -34,7 +34,7 @@
                             <td>
                                 <a class="btn btn-link"
                                     href="{{ route('products.show', ['product' => $product->id]) }}">Show</a>
-
+                                {{-- href="{{ route('products.show', ['product' => $product->title]) }}">Show</a> // c47 para que trabaje con title--}}
                                 <a class="btn btn-link"
                                     href="{{ route('products.edit', ['product' => $product->id]) }}">Edit</a>
                                          
