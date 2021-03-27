@@ -58,19 +58,22 @@ class ProductController extends Controller
 
        // request()->validate($rules);
 
-        if (request()->status == 'available' && request()->stock == 0) {  //! Manera de atrapar un error en la captura es una opcion
-            //session()->put('error', 'If available must have stock'); //! valor error permance
-            //session()->flash('error', 'If available must have stock'); //! valor error NO permance si tu refrescas das un nuevo producto si vas a otra direccion flash crea y elimina  Esta deja de funcionar con withErrors 
+        // if (request()->status == 'available' && request()->stock == 0) {  //! Manera de atrapar un error en la captura es una opcion
+        //     //session()->put('error', 'If available must have stock'); //! valor error permance
+        //     //session()->flash('error', 'If available must have stock'); //! valor error NO permance si tu refrescas das un nuevo producto si vas a otra direccion flash crea y elimina  Esta deja de funcionar con withErrors 
 
-            return redirect()
-                ->back()
-                ->withInput(request()->all())
-                ->withErrors('If available must have stock create');
-        }
+        //     return redirect()
+        //         ->back()
+        //         ->withInput(request()->all())
+        //         ->withErrors('If available must have stock create');
+        // } // ! c49 se cambio a ProductRequest 
+
+       // dd(request()->all(), $request->all(), $request->validated());//!c49 solo para prueba  validated da menos caracteres 
 
         session()->forget('error');
 
-        $product = product::create(request()->all());
+        //$product = product::create(request()->all()); //!c49 asi estaba antes del formrequest
+         $product = product::create($request->validated());//! c49 asi quedo con formrequest
         //return $product;
         // return redirect()->back(); //anterior// ! Este puede servir para que siga capturando
 
@@ -121,14 +124,15 @@ class ProductController extends Controller
 
        // $product = Product::findOrFail($product); //! c47
 
-        $product->update(request()->all());
-
-        if (request()->status == 'available' && request()->stock == 0) { 
-            return redirect()
-                ->back()
-                ->withInput(request()->all())
-                ->withErrors('If available must have stock edit');
-        }
+       // $product->update(request()->all()); //!c49 asi estaba antes del formrequest
+          $product->update($request->validated()); //!c49 con validate viajan menos datos
+       
+        // if (request()->status == 'available' && request()->stock == 0) { 
+        //     return redirect()s
+        //         ->back()
+        //         ->withInput(request()->all())
+        //         ->withErrors('If available must have stock edit');
+        //}//! c49 se cambio a ProductRequest.php
 
         return redirect()
             ->route('products.index')

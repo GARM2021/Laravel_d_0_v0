@@ -29,6 +29,16 @@ class ProductRequest extends FormRequest
             'price' => ['required', 'min:1'],
             'stock' => ['required', 'min:0'],
             'status' => ['required', 'in:available, unabailable']
-        ]; //! c49 viene de ProductController.php
+        ]; 
     }
+    
+    public function withValidator($validator)//!c49 se incluyo
+    {
+       $validator->after(function($validator){
+        if ($this->status == 'available' && $this->stock == 0) { 
+            $validator->errors()->add('stock', 'If available must have stock PR');
+        }
+       });
+    }
+    
 }
