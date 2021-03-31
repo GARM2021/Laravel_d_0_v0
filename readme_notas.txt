@@ -96,20 +96,20 @@ en /config/session.php
   el tiempo de duración de la sesión es decir después de cuánto tiempo puede expirar o no si se va a expirar
 
 Clase 43 
-D:\xampp\htdocs\Laravel-desde-Cero>composer require laravel/ui
+D:\xampp\htdocs\Laravel-desde-Cero>composer require laravel/ui //re run en casa
 
-D:\xampp\htdocs\Laravel-desde-Cero>php artisan ui --help
+D:\xampp\htdocs\Laravel-desde-Cero>php artisan ui --help  //re run en casa
 
-D:\xampp\htdocs\Laravel-desde-Cero>php artisan ui bootstrap --auth
+D:\xampp\htdocs\Laravel-desde-Cero>php artisan ui bootstrap --auth  //re run en casa
 
-D:\xampp\htdocs\Laravel-desde-Cero>php artisan migrate:fresh --seed  // genera los usuarios y refresca los productos 
+D:\xampp\htdocs\Laravel-desde-Cero>php artisan migrate:fresh --seed  // genera los usuarios y refresca los productos //re run en casa
 
 Clase 45
 npm --version
 
 npm install 
 
-npm run dev  // me marco error y lo volvi a correr y ya termino successfully
+npm run dev  // me marco error y lo volvi a correr y ya termino successfully //re run en casa
 
 Clase 49
 D:\xampp\htdocs\Laravel-desde-Cero>php artisan make:request ProductRequest // crea en app/Request 
