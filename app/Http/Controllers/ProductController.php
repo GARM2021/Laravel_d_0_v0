@@ -70,7 +70,7 @@ class ProductController extends Controller
 
        // dd(request()->all(), $request->all(), $request->validated());//!c49 solo para prueba  validated da menos caracteres 
 
-        session()->forget('error');
+       // session()->forget('error');
 
         //$product = product::create(request()->all()); //!c49 asi estaba antes del formrequest
          $product = product::create($request->validated());//! c49 asi quedo con formrequest

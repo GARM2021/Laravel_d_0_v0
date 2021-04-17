@@ -40,3 +40,7 @@ Route::resource('products', 'ProductController'); //!c48 Ruta de recursos se eli
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
