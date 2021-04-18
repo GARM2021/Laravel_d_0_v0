@@ -122,8 +122,14 @@ D:\xampp\htdocs\Laravel-desde-Cero>php artisan make:request ProductRequest // cr
     
 20210417
 Para ubicar el programa en casa esta en 
-C:\xampp\htdocs\Laravel_d_0_v0  y el worksapce es 
+C:\xampp\htdocs\Laravel_d_0_v0  y el worksapce es este esl el directorio de casa
 WS_LARAVELDESDECEROOFICINA(WORKSAPCE)  20210417 
+
+Clase 50 
+
+C:\xampp\htdocs\Laravel_d_0_v0 php artisan make:model Image -a
+Controller created successfully. //si se tardo un buen 
+
 
 
 
