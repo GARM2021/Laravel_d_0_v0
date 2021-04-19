@@ -133,11 +133,25 @@ Controller created successfully. //si se tardo un buen
 
 Clase 52
 
+D:\xampp\htdocs\Laravel-desde-Cero // oficina
+
 php artisan migrate // genera las nuevas tablas. Oficina
 
 php aritsan migrate:fresh --seed  // actualiza campos de user 
 
+Clase 54
 
+D:\xampp\htdocs\Laravel-desde-Cero // oficina
+
+php artisan tinker
+
+>>> $instance = App\Cart::factory()->make();
+
+>>>  $instance = App\Models\Cart::factory()->create();
+  $instance = App\Models\Order::factory()->create();
+   $instance = App\Models\Payment::factory()->create();
+   $instance = App\Models\User::factory()->create();
+   $instance = App\Models\Image::factory()->create();
 
 
 
