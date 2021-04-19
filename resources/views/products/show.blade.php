@@ -9,13 +9,14 @@
 
 <body> --}}
     @section('content');
-<body>
-    <h1>{{$element->title}}</h1>
-    <p>{{$element->description}}</p>
-    <p>{{$element->price}}</p>
-    <p>{{$element->stock}}</p>
 
-    {!! $html !!}
+    <div class="row">
+        @foreach ($products as $product)
+        <div class="col 3">
+           @include('components.product-card')
+        </div>
+        @endforeach
+    </div>
           
     @endsection
 {{-- </body>

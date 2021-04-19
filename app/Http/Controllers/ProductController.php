@@ -94,11 +94,13 @@ class ProductController extends Controller
 
         //$product = Product::find($product); //! Se puede poner findOrFail  para atrapar un error cuando no se encuentre C47 inyeccion de modelos se puede omitir esta linea por completo con public function show (Product $product)
         //dd($products);
-        return view('products.show')->with([
-            'element' => $product,
-            'html' => '<h2> Subtitulo </h2>',
+        // return view('products.show')->with([
+        //     'element' => $product,
+        //     'html' => '<h2> Subtitulo </h2>',
 
-        ]);
+        // ]);
+
+        return view('products.show')->with(['products' => Product::all(), ]);
     }
     public function edit(Product $product)//! c47
     {
