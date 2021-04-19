@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+       // 'admin_since',
     ];
 
     /**
@@ -39,5 +40,14 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+    ];
+
+     /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $dates = [ //!C53 tipo de Carbon
+        'admin_since' => 'datetime',
     ];
 }
