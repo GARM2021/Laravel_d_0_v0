@@ -131,6 +131,13 @@ C:\xampp\htdocs\Laravel_d_0_v0 php artisan make:model Image -a
 Controller created successfully. //si se tardo un buen 
 
 
+Clase 52
+
+php artisan migrate // genera las nuevas tablas. Oficina
+
+php aritsan migrate:fresh --seed  // actualiza campos de user 
+
+
 
 
 

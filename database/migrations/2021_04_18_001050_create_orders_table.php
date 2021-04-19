@@ -15,6 +15,8 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('status')->default('pending');// ! C52 
+            // custumer id later 
             $table->timestamps();
         });
     }
