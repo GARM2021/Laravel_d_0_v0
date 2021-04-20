@@ -153,6 +153,43 @@ php artisan tinker
    $instance = App\Models\User::factory()->create();
    $instance = App\Models\Image::factory()->create();
 
+Clase 55
+$cart = App\Cart::factory()->make();
+
+Clase 56
+
+D:\xampp\htdocs\Laravel-desde-Cero>php artisan migrate:fresh --seed //C56
+
+php artisan tinker
+
+$order = App\Models\Order::factory()->make();
+
+$payment  = App\Models\Payment::factory()->make(['order_id' => $order->id]); 
+
+$order = App\Models\Order::factory()->make();
+
+$payment  = App\Models\Payment::factory()->make(['order_id' => $order->id]); // aqui batalle porque habia puesto order_id como order-id
+
+----como comprobacion : ---------------------------------------------------------------------------------------------------------------
+>>> $order -> payment;
+=> App\Models\Payment {#4354
+     id: "4",
+     amount: "132.45",
+     payed_at: "2020-06-06 23:19:41",
+     order_id: "4",
+     created_at: "2021-04-20 21:10:05",
+     updated_at: "2021-04-20 21:10:05",
+   }
+>>> $payment -> order;
+=> App\Models\Order {#4358
+     id: "4",
+     status: "pending",
+     created_at: "2021-04-20 21:09:59",
+     updated_at: "2021-04-20 21:09:59",
+   }
+>>>  
+-------------------------------------------------------------------------------------------------------------------                                     
+
 
 
 

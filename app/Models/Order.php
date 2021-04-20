@@ -17,4 +17,10 @@ class Order extends Model
         'status',
        
     ];
+
+    public function payment()
+    {
+            return $this->hasOne(Payment::class); // ! C56
+
+    }
 }
