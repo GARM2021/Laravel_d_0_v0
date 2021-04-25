@@ -15,12 +15,19 @@ class Order extends Model
      */
     protected $fillable = [ //!C53
         'status',
+        'customer_id', // ! C57
        
     ];
 
     public function payment()
     {
             return $this->hasOne(Payment::class); // ! C56
+
+    }
+
+    public function user() // ! C57
+    {
+        return $this->belongsTo(User::class, 'customer_id');
 
     }
 }

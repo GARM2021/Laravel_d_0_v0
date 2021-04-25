@@ -189,6 +189,11 @@ $payment  = App\Models\Payment::factory()->make(['order_id' => $order->id]); // 
    }
 >>>  
 -------------------------------------------------------------------------------------------------------------------                                     
+Clase 56
+php artisan tinker
+ $user = App\Models\User::factory()->create();
+ $order = App\Models\Order::factory()->create(['customer_id' => $user->id]);
+   
 
 
 

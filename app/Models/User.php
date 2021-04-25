@@ -50,4 +50,9 @@ class User extends Authenticatable
     protected $dates = [ //!C53 tipo de Carbon
         'admin_since' => 'datetime',
     ];
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class); // ! C57
+    }
 }
