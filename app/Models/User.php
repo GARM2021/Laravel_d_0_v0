@@ -54,6 +54,6 @@ class User extends Authenticatable
 
     public function orders()
     {
-        return $this->hasMany(Order::class); // ! C57
+        return $this->hasMany(Order::class, 'user_id'); // ! C57 correccion ultima 
     }
 }

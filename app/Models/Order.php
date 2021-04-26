@@ -15,7 +15,7 @@ class Order extends Model
      */
     protected $fillable = [ //!C53
         'status',
-        'customer_id', // ! C57
+        'user_id', // ! C57
        
     ];
 
@@ -27,7 +27,7 @@ class Order extends Model
 
     public function user() // ! C57
     {
-        return $this->belongsTo(User::class, 'customer_id');
+        return $this->belongsTo(User::class, 'user_id');
 
     }
 }
