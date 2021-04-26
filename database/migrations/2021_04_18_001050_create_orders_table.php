@@ -17,11 +17,13 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('status')->default('pending');// ! C52 
             // custumer id later ´
-            $table->bigInteger('customer_id')->unsigned();//!C57
-
-            $table->foreign('customer_id')->references('id')->on('users');//!C57
+            $table->bigInteger('user_id')->unsigned();//!C57
 
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');//!C57
+
+           
         });
     }
 
