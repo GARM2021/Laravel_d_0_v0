@@ -18,6 +18,7 @@ class CreateImagesTable extends Migration
             $table->string('path');// ! C52 
             //$table->string('path')->unique();// ! C52 de esta manera quedara como unica
             $table->timestamps();
+            $table->morphs('imageable'); // ! C60
         });
     }
 

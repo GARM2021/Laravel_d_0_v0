@@ -60,4 +60,9 @@ class User extends Authenticatable
     {
         return $this->hasManyThrough(Payment::class, Order::class, 'user_id');
     }
+
+    public  function image() // ! C60
+    {
+         return $this->morphOne(Image::class, 'imageable' );
+    }
 }

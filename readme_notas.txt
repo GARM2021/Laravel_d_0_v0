@@ -238,3 +238,23 @@ $order = $order-fresh();
  $payment = $user->payment()->save(App\Models\Payment::factory()->make()); //?
  $payment = $order->payment()->save(App\Models\Payment::factory()->make());// ok
 $order->payment; //ok
+
+-------------------------------------------------------------------------------------------------------------------
+ Clase 60
+
+$user = App\Models\User::factory()->create();
+
+ $user->image()->save(App\Models\Image::factory()->make());
+
+ >> $user->image;
+>>> $image = $user->image;
+>>> $image->imageable;
+    App\Models\User {#4285
+     id: "1",
+     name: "Prof. Zakary Stroman III",
+     email: "gislason.oswald@example.com",
+     email_verified_at: "2021-04-27 21:31:24",
+     admin_since: "2021-04-27 21:31:24",
+     created_at: "2021-04-27 21:31:24",
+     updated_at: "2021-04-27 21:31:24",
+   }
