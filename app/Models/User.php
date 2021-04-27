@@ -29,7 +29,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'id',
         'password',
         'remember_token',
     ];
@@ -55,5 +54,10 @@ class User extends Authenticatable
     public function orders()
     {
         return $this->hasMany(Order::class, 'user_id'); // ! C57 correccion ultima 
+    }
+
+    public function payments() // ! C59
+    {
+        return $this->hasManyThrough(Payment::class, Order::class, 'user_id');
     }
 }

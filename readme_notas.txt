@@ -219,9 +219,22 @@ $order->products;
 
 $order = $order-fresh();
 
+-------------------------------------------------------------------------------------------------------------------
+ Clase 59
+ $payment = App\Models\Payment::factory()->create(['order_id' => $user->id]); //ok
 
+ $order = $user->orders()->save(App\Models\Order::factory()->make()); //ok
+=> App\Models\Order {#4350
+     status: "pending",
+     user_id: 1,
+     updated_at: "2021-04-27 18:52:19",
+     created_at: "2021-04-27 18:52:19",
+     id: 4,
+   }
+ $user->orders;// ok
+ $user->payments; //ok
+  
 
-
-
-
-
+ $payment = $user->payment()->save(App\Models\Payment::factory()->make()); //?
+ $payment = $order->payment()->save(App\Models\Payment::factory()->make());// ok
+$order->payment; //ok
