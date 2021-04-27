@@ -19,4 +19,16 @@ class Product extends Model
 
 
     ];
+
+    public function carts() // ! C58
+    {
+        return  $this->belongsToMany(Cart::class)->withPivot('quantity');
+
+    }  
+    
+    public function orders() // ! C58
+    {
+        return  $this->belongsToMany(Order::class)->withPivot('quantity');
+
+    }     
 }

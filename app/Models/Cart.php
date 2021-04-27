@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Cart extends Model
 {
     use HasFactory;
+
+    public function products() // ! C58
+    {
+        return  $this->belongsToMany(Product::class)->withPivot('quantity');
+
+    }          
 }

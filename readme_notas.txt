@@ -192,9 +192,32 @@ $payment  = App\Models\Payment::factory()->make(['order_id' => $order->id]); // 
 Clase 56
 php artisan tinker
  $user = App\Models\User::factory()->create();
- $order = App\Models\Order::factory()->create(['customer_id' => $user->id]);
-   
+ $order = App\Models\Order::factory()->create(['user_id' => $user->id]);
+-------------------------------------------------------------------------------------------------------------------
+ Clase 57
+ >>> $user = App\Models\User::factory()->create(); 
+>>> $user->orders()->save(App\Models\Order::factory()->make());  
+>>> $user->orders; 
+>>> $user = App\Models\User::first(); 
+>>> $order->user;
+-------------------------------------------------------------------------------------------------------------------
+ Clase 58
 
+ php artisan make:migration CreateCartProductTable
+ php artisan make:migration CreateOrderProductTable
+
+ //se modifican los modelos para que existan las relaciones con las tablas pivote
+
+ php aritsan migrate:fresh --seed
+  $user = App\Models\User::factory()->create();
+ $order = App\Models\Order::factory()->create(['user_id' => $user->id]);
+$cart = App\Models\Cart::factory()->create();
+
+$order->products()->attach([1 =>['quantity' => 4], 2 =>['quantity' => 5], 3 => ['quantity' =>3]]);
+
+$order->products;
+
+$order = $order-fresh();
 
 
 
