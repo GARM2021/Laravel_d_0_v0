@@ -272,3 +272,26 @@ $user = App\Models\User::factory()->create();
     $product->images()->save(App\Models\Image::factory()->make()); 
     $product = $product->fresh();
     $product->images;
+
+
+
+  -------------------------------------------------------------------------------------------------------------------
+ Clase 62
+ 
+ $product = App\Models\Product::find(3);
+
+>>> $cart = App\Models\Cart::factory()->create();
+
+>>> $user = App\Models\User::factory()->create();
+
+>>> $order = App\Models\Order::factory()->create(['user_id' => $user->id]);
+
+>>> $product->orders;
+=
+>>> $order->products()->attach([1 =>['quantity' => 4], 2 =>['quantity' => 5], 3 => ['quantity' =>3]]);
+
+>>> $order->products;
+
+>>> $cart->products()->attach([$product->id =>['quantity' => 5]]);
+>>> $cart->products;
+ 
