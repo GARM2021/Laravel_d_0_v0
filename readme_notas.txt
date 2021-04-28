@@ -258,3 +258,17 @@ $user = App\Models\User::factory()->create();
      created_at: "2021-04-27 21:31:24",
      updated_at: "2021-04-27 21:31:24",
    }
+-------------------------------------------------------------------------------------------------------------------
+ Clase 61
+   $product = App\Product::find(2);
+   $product->images()->save(App\Models\Image::factory()->make());
+    // nos trae un usuario
+   $image = App\Models\Image::find(2);
+   $image->imageable;
+    // nos trae un producto
+   $image = App\Models\Image::find(1);
+    $image->imageable;
+    $product->images; 
+    $product->images()->save(App\Models\Image::factory()->make()); 
+    $product = $product->fresh();
+    $product->images;
