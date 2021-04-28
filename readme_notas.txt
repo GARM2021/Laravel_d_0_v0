@@ -277,7 +277,7 @@ $user = App\Models\User::factory()->create();
 
   -------------------------------------------------------------------------------------------------------------------
  Clase 62
- 
+
  $product = App\Models\Product::find(3);
 
 >>> $cart = App\Models\Cart::factory()->create();
@@ -294,4 +294,15 @@ $user = App\Models\User::factory()->create();
 
 >>> $cart->products()->attach([$product->id =>['quantity' => 5]]);
 >>> $cart->products;
- 
+
+ -------------------------------------------------------------------------------------------------------------------
+ Clase 63
+
+ php artisan migrate:fresh --seed
+
+ App\Models\User::all();
+  App\Models\Order::all(); 
+ App\Models\Payment::all(); 
+$order = App\Models\Order::first();  
+  $order->payment; 
+  $order->user; 
