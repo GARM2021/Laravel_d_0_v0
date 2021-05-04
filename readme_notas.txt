@@ -320,3 +320,8 @@ $order = App\Models\Order::first();
    $product = App\Models\Product::first();
    $product->orders;
   $product->carts; 
+
+  -------------------------------------------------------------------------------------------------------------------
+ Clase 65
+
+  https://laravel.com/docs/8.x/eloquent#query-scopes
