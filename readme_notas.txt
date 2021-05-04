@@ -325,3 +325,10 @@ $order = App\Models\Order::first();
  Clase 65
 
   https://laravel.com/docs/8.x/eloquent#query-scopes
+
+  -------------------------------------------------------------------------------------------------------------------
+ Clase 66
+
+php artisan make:controller --help
+
+php artisan make:controller ProductCartController -m Cart -p Product
