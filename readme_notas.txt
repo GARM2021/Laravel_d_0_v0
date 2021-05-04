@@ -298,6 +298,9 @@ $user = App\Models\User::factory()->create();
  -------------------------------------------------------------------------------------------------------------------
  Clase 63
 
+ //se modifico
+ database\DatabaseSeeder.php
+
  php artisan migrate:fresh --seed
 
  App\Models\User::all();
@@ -306,3 +309,14 @@ $user = App\Models\User::factory()->create();
 $order = App\Models\Order::first();  
   $order->payment; 
   $order->user; 
+
+ -------------------------------------------------------------------------------------------------------------------
+ Clase 64
+
+  php artisan migrate:fresh --seed
+
+   $images = App\Models\Image::all();
+    $carts = App\Models\Cart::all();
+   $product = App\Models\Product::first();
+   $product->orders;
+  $product->carts; 
