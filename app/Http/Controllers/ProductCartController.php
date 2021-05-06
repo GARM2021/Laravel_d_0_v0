@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Product;
+use App\Services\CartService;
 use Illuminate\Http\Request;
-use PhpParser\Node\Stmt\Return_;
+use Illuminate\Support\Facades\Cookie; 
+use Illuminate\Validation\ValidationException;
+
 
 class ProductCartController extends Controller
 {
@@ -37,23 +40,29 @@ class ProductCartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
+     
      */
     public function store(Request $request, Product $product)
     {
-        $cart = Cart::create(); // ! C66 
+        $cart = $this->getFromCookieOrCreate(); // ! C67
+
+        // $cart = Cart::create(); // ! C66 se elimino en la C67 
 
         $quantity = $cart->products()  // ! C66 
-        ->find($product->id)
-        ->pivot
-        ->quantity ?? 0;
-        
+            ->find($product->id)
+            ->pivot
+            ->quantity ?? 0;
 
-        $cart->productos()->atacch([
+
+        $cart->products()->syncWithoutDetaching([ // ! C67  habia puesto productos
             $product->id => ['quantity' => $quantity + 1],  // ! C66 
         ]);
 
-        return redirect()->back(); // ! C66 
+        //return redirect()->back(); // ! C66  se elimino en la C67
 
+        $cookie =Cookie::make('cart', $cart->id, 7 * 24 * 60); // ! C67
+
+        return redirect()->back()->cookie($cookie); // ! C67
         //
     }
 
@@ -104,5 +113,19 @@ class ProductCartController extends Controller
     public function destroy(Product $product, Cart $cart)
     {
         //
+    }
+
+    public function getFromCookieOrCreate() // ! C67
+    {
+       // $cartId = cookie()->get('cart');// ! C67  asi es un modo
+        $cartId = Cookie::get('cart');// ! C67  asi es oro modo 
+
+
+        $cart = Cart::find($cartId);
+
+        return $cart ?? Cart::create();
+
+
+
     }
 }
