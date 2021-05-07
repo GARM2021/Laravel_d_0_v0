@@ -331,4 +331,4 @@ $order = App\Models\Order::first();
 
 php artisan make:controller --help
 
-php artisan make:controller ProductCartController -m Cart -p Product
+php artisan make:controller ProductCartController -m Cart -p Product  // !El padre es el producto porque existe primero que el carrito

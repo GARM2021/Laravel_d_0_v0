@@ -115,17 +115,5 @@ class ProductCartController extends Controller
         //
     }
 
-    public function getFromCookieOrCreate() // ! C67
-    {
-       // $cartId = cookie()->get('cart');// ! C67  asi es un modo
-        $cartId = Cookie::get('cart');// ! C67  asi es oro modo 
-
-
-        $cart = Cart::find($cartId);
-
-        return $cart ?? Cart::create();
-
-
-
-    }
+   
 }

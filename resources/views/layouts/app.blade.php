@@ -36,6 +36,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('products.index') }}">Products</a>
                         </li>
+                        {{-- C68 --}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('carts.index') }}">Cart</a>
+                        </li>
 
                     </ul>
 

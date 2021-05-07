@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Services\CartService;
+
+
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -12,9 +15,25 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public $cartService; //!C68
+    
+    public function __construct(CartService $cartService)//!C68
+    {
+
+            $this->cartService = $cartService;//!C68
+            
+
+    }
+
     public function index()
     {
-        //
+       
+
+        return view('carts.index')->with([
+            'cart' =>$this->cartService->getFromCookieOrCreate(),
+        ]);
+        return $cart->products;
     }
 
     /**
