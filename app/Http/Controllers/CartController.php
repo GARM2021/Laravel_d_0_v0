@@ -7,6 +7,8 @@ use App\Services\CartService;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;  //!C68
+
 
 class CartController extends Controller
 {
@@ -33,7 +35,7 @@ class CartController extends Controller
         return view('carts.index')->with([
             'cart' =>$this->cartService->getFromCookieOrCreate(),
         ]);
-        return $cart->products;
+        // return $cart->products;
     }
 
     /**

@@ -12,41 +12,24 @@ use Illuminate\Validation\ValidationException;
 
 class ProductCartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Product $product)
-    {
-        //
-    }
+    
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Product $product)
-    {
-        //
-    }
+    public $cartService;
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     
-     */
+    public function __construct(CartService $cartService)
+    {
+        $this->cartService = $cartService;
+    }
+  
     public function store(Request $request, Product $product)
     {
-        $cart = $this->getFromCookieOrCreate(); // ! C67
+        // $cart = $this->getFromCookieOrCreate(); // ! C67  C68 se elimino 
 
-        // $cart = Cart::create(); // ! C66 se elimino en la C67 
+      
+
+       //  $cart = Cart::create(); // ! C66 C68 ESTE ESTABA ACTIVO Y ME MARCABA ERROR EN LA CLASE 68
+
+       $cart = $this->cartService->getFromCookieOrCreate(); //! C68 este faltaba este tenia $cartService 
 
         $quantity = $cart->products()  // ! C66 
             ->find($product->id)
@@ -114,6 +97,21 @@ class ProductCartController extends Controller
     {
         //
     }
+
+    // public function getFromCookieOrCreate() // ! C67 C68 SE ELIMINO PORQUE ESTA EN SERVICES
+    // {
+    //    // $cartId = cookie()->get('cart');// ! C67  asi es un modo
+    //     $cartId = Cookie::get('cart');// ! C67  asi es oro modo 
+
+
+    //     $cart = Cart::find($cartId);
+
+    //     return $cart ?? Cart::create();
+
+
+
+    // }
+    
 
    
 }
