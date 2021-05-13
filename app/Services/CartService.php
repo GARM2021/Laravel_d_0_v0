@@ -10,18 +10,24 @@ use Illuminate\Support\Facades\Cookie;
 
 class CartService
 {
+    protected $cookieName = 'cart'; // ! C69
+
    
     public function getFromCookieOrCreate() // ! C67
     {
        // $cartId = cookie()->get('cart');// ! C67  asi es un modo
-        $cartId = Cookie::get('cart');// ! C67  asi es oro modo 
+        $cartId = Cookie::get($this->cookieName);// ! C67  asi es oro modo C69 Se modifico 'cart' por $this->cookieName
 
 
         $cart = Cart::find($cartId);// ! C67  asi es oro modo 
 
         return $cart ?? Cart::create();// ! C67  asi es oro modo 
 
-
-
     }
+
+    public function makeCookie(Cart $cart)
+    {
+        return Cookie::make($this->cookieName, $cart->id, 7 * 24 * 60); // ! C69 Se modifico 'cart' por $this->cookieName
+    }
+
 }
