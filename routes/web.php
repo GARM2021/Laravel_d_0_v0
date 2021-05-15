@@ -20,6 +20,7 @@ Route::get('/', 'MainController@index')->name('main');
 //Route::resource('products', 'ProductController')->only(['index', 'show', 'create']); // ->except //!c48 
 Route::resource('products', 'ProductController'); //!c48 Ruta de recursos se eliminaron todas las demas
 Route::resource('carts', 'CartController')->only('index'); //!c68
+Route::resource('orders', 'OrderController')->only('create', 'store'); //! C71
 
 Route::resource('products.carts', 'ProductCartController')->only(['store', 'destroy']); //!C66 
 

@@ -8,6 +8,9 @@
         Your cart is empty.
     </div>
 @else
+<a class= "btn btn-succes mb-3" href="{{ route('orders.create') }}">
+    Start Order    
+</a>
        
 
         <div class="row">
