@@ -34,7 +34,7 @@ class CartController extends Controller
 
         return view('carts.index')->with([
             'cart' =>$this->cartService->getFromCookieOrCreate(),
-        ]);
+        ]);//!C68
         // return $cart->products;
     }
 

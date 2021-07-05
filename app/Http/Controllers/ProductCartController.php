@@ -6,7 +6,7 @@ use App\Models\Cart;
 use App\Models\Product;
 use App\Services\CartService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cookie; 
+use Illuminate\Support\Facades\Cookie; //! C67 
 use Illuminate\Validation\ValidationException;
 use PhpParser\Node\Stmt\Return_;
 
@@ -42,7 +42,7 @@ class ProductCartController extends Controller
         ]);
 
         //return redirect()->back(); // ! C66  se elimino en la C67
-        $cookie =  $this->cartService->makeCookie($cart);
+        $cookie =  $this->cartService->makeCookie($cart); // ! C69
 
        // $cookie =Cookie::make('cart', $cart->id, 7 * 24 * 60); // ! C67
 
@@ -94,13 +94,13 @@ class ProductCartController extends Controller
      * @param  \App\Models\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product, Cart $cart)
+    public function destroy(Product $product, Cart $cart) //! C69
     {
         $cart->products()->detach($product->id);//! C69 
 
        $cookie =  $this->cartService->makeCookie($cart);
 
-        return redirect()->back();
+        return redirect()->back()->cookie($cookie); // ! C69 revision ? 
 
     }
 

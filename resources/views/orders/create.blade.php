@@ -1,5 +1,5 @@
 @extends('layouts.app');
-
+{{-- C71 --}}
 @section('content');
     <h1>List of Products</h1>
 
@@ -13,36 +13,25 @@
             <table class="table table-striped">
                 <thead class="thead-light">
                     <tr>
-                        <th>Id</th>
-                        <th>Title</th>
-                        <th>Description</th>
+                        <th>Product</th>
                         <th>Price</th>
-                        <th>Stock</th>
-                        <th>Estatus</th>
-                        <th>Actions</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($products as $product)
                         <tr>
-                            <td>{{ $product->id }}</td>
-                            <td>{{ $product->title }}</td>
-                            <td>{{ $product->description }}</td>
+
+                            <td> <img src="{{ asset() }}">{{ $product->images->first()->path }}">
+                                {{ $product->title }}
+                            </td>
                             <td>{{ $product->price }}</td>
-                            <td>{{ $product->stock }}</td>
-                            <td>{{ $product->status }}</td>
+                            <td>{{ $product->pivot->quantity }}</td>
                             <td>
-                                <a class="btn btn-link"
-                                    href="{{ route('products.show', ['product' => $product->id]) }}">Show</a>
-                                {{-- href="{{ route('products.show', ['product' => $product->title]) }}">Show</a> // c47 para que trabaje con title--}}
-                                <a class="btn btn-link"
-                                    href="{{ route('products.edit', ['product' => $product->id]) }}">Edit</a>
-                                         
-                                <form method="POST" class="d-inline" action="{{ route('products.destroy', ['product' => $product->id]) }}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-link">Delete</button>
-                                </form>
+                                <strong>
+                                    {{ $product->pivot->quantity * $product->price }}
+                                </strong>
                             </td>
                         </tr>
                     @endforeach

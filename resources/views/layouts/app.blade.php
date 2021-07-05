@@ -38,7 +38,8 @@
                         </li>
                         {{-- C68 --}}
                         <li class="nav-item">
-                            @inject('cartService', 'App\Services\CartService')
+                             <!-- C70 -->
+                            @inject('cartService', 'App\Services\CartService') 
                             <a class="nav-link" href="{{ route('carts.index') }}">
                                 {{-- C70 --}}
                                 Cart ({{ $cartService->countProducts() }}) </a>

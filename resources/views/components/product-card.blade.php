@@ -7,23 +7,22 @@
         <h5 class="card-title">{{ $product->title }}</h5>
         <p class="card-text">{{ $product->description }}</p>
         <p class="card-text"><strong>{{ $product->stock }} left</strong></p>
-{{-- // C69 OFICINA se incluyo el if y el boton de remove >> --}}
-        
+        {{-- // C69 OFICINA se incluyo el if y el boton de remove >> --}}
+
         @if (@isset($cart))
-        <form class="d-inline" 
-        method="POST"
-        action="{{ route('products.carts.destroy', ['cart' => $cart-> id, 'product' => $product->id]) }}">
-        @csrf
-        @method('DELETE')
-            <button type="submit" class="btn btn-warning">Remove From Cart </button>
-        </form>
+            <form class="d-inline" method="POST"
+                action="{{ route('products.carts.destroy', ['cart' => $cart->id, 'product' => $product->id]) }}">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-warning">Remove From Cart </button>
+            </form>
+            {{-- C69 --}}
         @else
-        <form class="d-inline" 
-        method="POST"
-        action="{{ route('products.carts.store', ['product' => $product->id]) }}">
-        @csrf
-            <button type="submit" class="btn btn-success">Add to Cart</button>
-        </form>
+            <form class="d-inline" method="POST"
+                action="{{ route('products.carts.store', ['product' => $product->id]) }}">
+                @csrf
+                <button type="submit" class="btn btn-success">Add to Cart</button>
+            </form>
         @endif
     </div>
 </div>

@@ -19,7 +19,7 @@ class CartService
 
     $cart = Cart::find($cartId);// ! C70
 
-    return $cart ?? Cart::create();// ! C70
+    return $cart;// ! C70
    }
 
     public function getFromCookieOrCreate() // ! C67
