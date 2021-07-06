@@ -5,10 +5,13 @@
 
     <a class="btn btn-success mb-3" href="{{ route('products.create') }}">Create</a>
 
-    @if (empty($products))
-        <div class="alert alert-warning">La lista de productos esta vacia</div>
+    {{-- C71 --}}
+    {{--@if (empty($products))--}}
+    {{--<div class="alert alert-warning">La lista de productos esta vacia</div>  --}}
+    {{-- @else--}}
+        
 
-    @else
+   
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead class="thead-light">
@@ -20,10 +23,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($products as $product)
+                    @foreach ($cart->products as $product)
                         <tr>
 
-                            <td> <img src="{{ asset() }}">{{ $product->images->first()->path }}">
+                            <td> <img src="{{ asset( $product->images->first()->path) }}" width= "100">{{-- C71  --}}
                                 {{ $product->title }}
                             </td>
                             <td>{{ $product->price }}</td>
@@ -39,5 +42,6 @@
                 </tbody>
             </table>
         </div>
-    @endif
+        {{--  @endif --}}
+   
 @endsection
