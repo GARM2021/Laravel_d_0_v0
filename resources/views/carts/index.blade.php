@@ -9,6 +9,9 @@
         Your cart is empty.
     </div>
 @else
+ {{-- C72 --}}
+<h4  class="text center"><strong>Grand Total: </strong> {{$cart->total}} </h4>
+
 {{-- C71 --}}
 <a class= "btn btn-succes mb-3" href="{{ route('orders.create') }}">
     Start Order    
