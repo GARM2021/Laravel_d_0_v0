@@ -9,17 +9,14 @@
         Your cart is empty.
     </div>
 @else
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 {{-- C72 --}}
 <h4 class="text-center">Your cart total: <strong>{{ $cart->total  }}</strong> </h4>
-=======
+
  {{-- C72 --}}
 <h4  class="text center"><strong>Grand Total: </strong> {{$cart->total}} </h4>
 
->>>>>>> 586a1927975cf701332ae1532d976964f40402b5
-=======
->>>>>>> parent of 9c83edb... C72 OFICINA
+
 {{-- C71 --}}
 <a class= "btn btn-succes mb-3" href="{{ route('orders.create') }}">
     Start Order    
