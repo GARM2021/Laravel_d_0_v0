@@ -15,9 +15,18 @@ class Cart extends Model
         return  $this->morphToMany(Product::class, 'productable')->withPivot('quantity'); // ! C62
 
     } 
+<<<<<<< HEAD
     
     public function getTotalAttribute() // ! C72
     {
         return  $this->products->pluck('total')->sum();
     }
+=======
+
+    public function getTotalAttribute() // ! C72
+    {
+        return  $this->products->pluck('total')->sum(); //! C72 accesor attribute
+    }
+
+>>>>>>> 586a1927975cf701332ae1532d976964f40402b5
 }

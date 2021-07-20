@@ -1,9 +1,14 @@
 @extends('layouts.app');
 {{-- C71 --}}
 @section('content');
+<<<<<<< HEAD
     <h1>Order Details</h1>
 
     <h4 class="text-center"><strong>Grand Total: </strong>{{ $cart->total }}</h4> {{-- C72 --}}
+=======
+    <h1>Orders Details</h1>
+    <h4  class="text center"><strong>Grand Total: </strong> {{$cart->total}} </h4>
+>>>>>>> 586a1927975cf701332ae1532d976964f40402b5
 
     <a class="btn btn-success mb-3" href="{{ route('products.create') }}">Create</a>
 
@@ -36,7 +41,12 @@
                         <td>
                             <strong>
                            
+<<<<<<< HEAD
                              $ {{ $product->Total }}{{-- C72 --}}
+=======
+                            {{-- {{ $product->pivot->quantity->Total }} C72 --}}
+                            $ {{ $product->Total }}  
+>>>>>>> 586a1927975cf701332ae1532d976964f40402b5
                             </strong>
                         </td>
                     </tr>

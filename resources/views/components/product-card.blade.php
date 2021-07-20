@@ -10,9 +10,14 @@
         {{-- // C69 OFICINA se incluyo el if y el boton de remove >> --}}
 
         @if (@isset($cart))
+<<<<<<< HEAD
         {{-- C72 --}}
             <p class="card-text">{{ $product->pivot->quantity }} in your cart <strong>{{ $product->stock  }}  </strong> </p>
      
+=======
+         {{-- C72 accesor total attribiute --}}
+        <P class="card-text"> {{$product->pivot->quantity }}in your cart <strong> {{ $product ->total }}</strong></P>
+>>>>>>> 586a1927975cf701332ae1532d976964f40402b5
             <form class="d-inline" method="POST"
                 action="{{ route('products.carts.destroy', ['cart' => $cart->id, 'product' => $product->id]) }}">
                 @csrf
