@@ -11,6 +11,7 @@
 
         @if (@isset($cart))
 <<<<<<< HEAD
+<<<<<<< HEAD
         {{-- C72 --}}
             <p class="card-text">{{ $product->pivot->quantity }} in your cart <strong>{{ $product->stock  }}  </strong> </p>
      
@@ -18,6 +19,8 @@
          {{-- C72 accesor total attribiute --}}
         <P class="card-text"> {{$product->pivot->quantity }}in your cart <strong> {{ $product ->total }}</strong></P>
 >>>>>>> 586a1927975cf701332ae1532d976964f40402b5
+=======
+>>>>>>> parent of 9c83edb... C72 OFICINA
             <form class="d-inline" method="POST"
                 action="{{ route('products.carts.destroy', ['cart' => $cart->id, 'product' => $product->id]) }}">
                 @csrf

@@ -14,6 +14,7 @@ class Cart extends Model
         //return  $this->belongsToMany(Product::class)->withPivot('quantity');// ! C58
         return  $this->morphToMany(Product::class, 'productable')->withPivot('quantity'); // ! C62
 
+<<<<<<< HEAD
     } 
 <<<<<<< HEAD
     
@@ -29,4 +30,7 @@ class Cart extends Model
     }
 
 >>>>>>> 586a1927975cf701332ae1532d976964f40402b5
+=======
+    }          
+>>>>>>> parent of 9c83edb... C72 OFICINA
 }
