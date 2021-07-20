@@ -10,6 +10,9 @@
         {{-- // C69 OFICINA se incluyo el if y el boton de remove >> --}}
 
         @if (@isset($cart))
+        {{-- C72 --}}
+            <p class="card-text">{{ $product->pivot->quantity }} in your cart <strong>{{ $product->stock  }}  </strong> </p>
+     
             <form class="d-inline" method="POST"
                 action="{{ route('products.carts.destroy', ['cart' => $cart->id, 'product' => $product->id]) }}">
                 @csrf
