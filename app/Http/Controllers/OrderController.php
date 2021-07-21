@@ -28,7 +28,7 @@ class OrderController extends Controller
             ->back()
             ->withErrors("Your cart is empty");
        }
-       else
+      
        return view('orders.create')->with([ 
            'cart' => $cart,
        ]);

@@ -18,7 +18,7 @@
 
 
 {{-- C71 --}}
-<a class= "btn btn-succes mb-3" href="{{ route('orders.create') }}">
+<a class= "btn btn-success mb-3" href="{{ route('orders.create') }}">
     Start Order    
 </a>
        

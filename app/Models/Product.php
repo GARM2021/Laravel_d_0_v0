@@ -44,4 +44,9 @@ class Product extends Model
         $query-> where('status', 'avialable')->get();
 
     }
+
+    public function getTotalAttribute()
+    {
+        return $this->pivot->quantity * $this->price; //! C72 FALTABA
+    }
 }
