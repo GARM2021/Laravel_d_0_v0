@@ -18,6 +18,9 @@ class OrderController extends Controller
 
             $this->cartService = $cartService;
 
+            $this->middleware('auth');
+
+
     }
     public function create()
     {
@@ -35,9 +38,28 @@ class OrderController extends Controller
     }
 
    
-    public function store(Request $request)
+    public function store(Request $request)//! C73
     {
-        //
+        $user    =  $request->user();//! C73
+
+        $order = $user->orders()->create([ //! C73
+            'status' => 'pending',
+        ]);
+
+        $cart = $this->cartService->getFromCookie();//! C73
+
+        $cartProductsWithQuantity = $cart
+        ->products
+        ->mapWithKeys(function ($product) {
+            $element[$product->id] = ['quantity' => $product->pivot->quantity];
+
+            return $element;
+        });
+
+        dd($cartProductsWithQuantity);
+
+        $order->products()->attach($cartProductsWithQuantity->toArray());
+
     }
 
    

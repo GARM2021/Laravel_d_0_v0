@@ -6,16 +6,14 @@
         <h4 class="text-right"><strong> $ {{ $product->price }}</strong></h4>
         <h5 class="card-title">{{ $product->title }}</h5>
         <p class="card-text">{{ $product->description }}</p>
-        <p class="card-text"><strong>{{ $product->stock }} left</strong></p>
+        <p class="card-text"><strong>{{ $product->stock }} </strong></p>
         {{-- // C69 OFICINA se incluyo el if y el boton de remove >> --}}
 
         @if (@isset($cart))
 
-        {{-- C72 --}}
-            <p class="card-text">{{ $product->pivot->quantity }} in your cart <strong>{{ $product->stock  }}  </strong> </p>
-
+        
          {{-- C72 accesor total attribiute --}}
-        <P class="card-text"> {{$product->pivot->quantity }}in your cart <strong> {{ $product ->total }}</strong></P>
+        <P class="card-text"> {{$product->pivot->quantity }} in your cart <strong> $  {{ $product ->total }}</strong></P>
 
             <form class="d-inline" method="POST"
                 action="{{ route('products.carts.destroy', ['cart' => $cart->id, 'product' => $product->id]) }}">

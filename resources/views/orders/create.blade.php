@@ -1,18 +1,26 @@
-@extends('layouts.app');
+@extends('layouts.app')
 {{-- C71 --}}
-@section('content');
+@section('content')
 
     <h1>Order Details</h1>
 
     <h4 class="text-center"><strong>Grand Total: </strong> $ {{ $cart->total }}</h4> {{-- C72 --}}
-
+{{-- C73 --}}
+    <div class="text-center mb-3">
+        <form class="d-inline" method="POST" action="{{ route('orders.store') }}">
+            @csrf
+            <button type="submit" class="btn btn-success">Confirm Order</button>
+        </form>
+    </div>
+{{--  --}}
 
     <h1>List of Products</h1>
 
 
     <a class="btn btn-success mb-3" href="{{ route('products.create') }}">Create</a>
 
-   
+
+
 
     <div class="table-responsive">
         <table class="table table-striped">
@@ -27,7 +35,7 @@
 
             <tbody>
                 {{-- ERR @foreach ($cart->$products as $product) --}}
-                @foreach ($cart->products as $product)  {{-- C71.2 recupere del merge error--}}
+                @foreach ($cart->products as $product) {{-- C71.2 recupere del merge error --}}
                     <tr>
 
                         <td> <img src="{{ asset($product->images->first()->path) }}" width="100">{{-- C71 --}}
