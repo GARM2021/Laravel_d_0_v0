@@ -24,6 +24,7 @@ Route::resource('orders', 'OrderController')->only('create', 'store'); //! C71
 
 Route::resource('products.carts', 'ProductCartController')->only(['store', 'destroy']); //!C66 
 
+Route::resource('orders.payments', 'OrderPaymentController')->only(['create', 'store']); //!C74 
 // Route::get('products', 'ProductController@index')->name('products.index');
 
 // Route::get('products/create', 'ProductController@create')->name('products.create');//! tenia este como ProductController@index y me mostraba la lista de productos que pen

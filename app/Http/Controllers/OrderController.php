@@ -48,7 +48,7 @@ class OrderController extends Controller
 
         $cart = $this->cartService->getFromCookie();//! C73
 
-        $cartProductsWithQuantity = $cart
+        $cartProductsWithQuantity = $cart //! C73
         ->products
         ->mapWithKeys(function ($product) {
             $element[$product->id] = ['quantity' => $product->pivot->quantity];
@@ -56,10 +56,11 @@ class OrderController extends Controller
             return $element;
         });
 
-        dd($cartProductsWithQuantity);
+        //dd($cartProductsWithQuantity);
 
-        $order->products()->attach($cartProductsWithQuantity->toArray());
+        $order->products()->attach($cartProductsWithQuantity->toArray());//! C73
 
+        return redirect()->route('orders.payments.create', ['order' => $order]);//! C74
     }
 
    
