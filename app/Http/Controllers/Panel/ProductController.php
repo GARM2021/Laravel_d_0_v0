@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Panel; //!C75
 
-//use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller; //!C75
+
 
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;

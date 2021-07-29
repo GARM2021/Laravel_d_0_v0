@@ -42,6 +42,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->mapApiRoutes();
         $this->mapWebRoutes();
+        $this->mapPanelRoutes(); //!C75
     }
 
     protected function mapApiRoutes()
@@ -60,6 +61,14 @@ class RouteServiceProvider extends ServiceProvider
             ->group(base_path('routes/web.php'));
     }
 
+    protected function mapPanelRoutes() //!C75
+    {
+        Route::prefix('panel')
+           
+            ->middleware(['web', 'auth'])
+            ->namespace("{$this->namespace}\Panel")
+            ->group(base_path('routes/panel.php'));
+    }
 
 
 
