@@ -65,4 +65,11 @@ class User extends Authenticatable
     {
          return $this->morphOne(Image::class, 'imageable' );
     }
+
+    public function isAdminFunctionName()//! C76
+    {
+        return $this->admin_since != null 
+            && $this->admin_since->lessThanOrEqualTo(now());
+
+    }
 }
