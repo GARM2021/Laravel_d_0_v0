@@ -47,9 +47,9 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $dates = [ //!C53 tipo de Carbon
-        'admin_since' => 'datetime',
-    ];
+    protected $dates = [ 
+        'admin_since',
+    ]; //!C53 tipo de Carbon C77 ERROR 403 lo tenia definido como  'user'->admin_since 
 
     public function orders()
     {
@@ -68,7 +68,9 @@ class User extends Authenticatable
 
     public function isAdmin() //! C76
     {
+        //dd($this->admin_since);
         return $this->admin_since != null  && $this->admin_since->lessThanOrEqualTo(now());
+      // return $this->admin_since != null;
 
     }
 }
