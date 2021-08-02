@@ -337,3 +337,8 @@ php artisan make:controller ProductCartController -m Cart -p Product  // !El pad
 Clase 74
 
 D:\xampp\htdocs\Laravel-desde-Cero>php artisan make:controller OrderPaymentController -m Payment -p Order
+
+-------------------------------------------------------------------------------------------------------------------
+Clase 77
+
+php artisan make:middleware CheckIfAdmin
