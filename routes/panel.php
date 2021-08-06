@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 
 //Route::resource('products', 'ProductController')->only(['index', 'show', 'create']); // ->except //!c48 
+Route::get('/', 'PanelController@index')->name('panel'); //!C78
+
 Route::resource('products', 'ProductController'); //!C75
 
 

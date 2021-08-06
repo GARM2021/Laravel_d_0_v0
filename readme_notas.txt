@@ -342,3 +342,8 @@ D:\xampp\htdocs\Laravel-desde-Cero>php artisan make:controller OrderPaymentContr
 Clase 77
 
 php artisan make:middleware CheckIfAdmin
+
+-------------------------------------------------------------------------------------------------------------------
+Clase 78
+
+D:\xampp\htdocs\Laravel-desde-Cero>php artisan make:controller  Panel\PanelController
